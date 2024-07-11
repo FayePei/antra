@@ -1,0 +1,100 @@
+.main{
+    margin-top: 100px;
+    margin-left: 12.5%;
+    text-align: center;
+    width: 75%;
+}
+
+h2{
+    margin-bottom: 25px;
+}
+
+
+
+input{
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding-left: 20px;
+    margin: 10px;
+    width: 200px;
+}
+
+#mobileNo, #emailId{
+    width: 450px;
+}
+
+
+
+
+.adjacent input[type='checkbox'], .adjacent label, .adjacent #terms {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 10px;
+}
+
+.adjacent input[type='checkbox']{
+    width: auto;
+}
+
+
+.adjacent #terms{
+    margin-left: 50px;
+    width: 300px;
+    font-size: small;
+    text-align: left;
+}
+
+
+
+
+
+#register, #signIn{
+    color: white;
+    padding-left: 0px;
+    width: 224px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+#register {
+    background-color: #428bca;
+}
+
+#signIn {
+    background-color: #5bb85c;
+}
+
+
+.regist{
+    background-color: #428bca;
+    padding: 0px 5px 2px;
+    border-radius: 5px;
+    color: white;
+}
+
+.ter{
+    color: #66a1d4;
+}
+
+
+
+
+@media (max-width: 680px) {
+    input{
+        width: 75%;
+    }
+    #mobileNo, #emailId{
+        width: 75%;
+    }
+    #register, #signIn{
+        width: 75%;
+    }
+
+    .adjacent #terms{
+        width: 75px;
+        font-size: small;
+    }
+
+    
+}
