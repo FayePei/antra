@@ -1,0 +1,71 @@
+What is the difference between instance methods and static methods?
+Instance Methods:Instance methods belong to an instance of a class. They require an object of the class to be called.
+Static methods belong to the class itself, not to any particular instance of the class.
+
+How does Javascript handle concurrency?
+JavaScript handles concurrency using an event loop, which allows it to perform non-blocking operations despite being single-threaded. Key concepts include:
+Event Loop: It continuously checks the call stack and the task queue. If the call stack is empty, it takes the first task from the queue and pushes it to the stack, thus executing it.
+Callbacks: Functions passed as arguments to other functions to be invoked after a certain task is completed.
+Promises: Objects representing eventual completion or failure of asynchronous operations. They allow chaining of asynchronous operations using .then() and .catch() methods.
+Async/Await: Syntactic sugar over promises that allows writing asynchronous code in a synchronous manner.
+
+What is async/await? How does it differ from using the promise instance methods?
+Async/Await:
+Syntax: Cleaner and more readable, resembling synchronous code.
+Error Handling: Uses try/catch blocks.
+async function fetchData() {
+    try {
+        let response = await fetch('https://api.example.com/data');
+        let data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+fetchData();
+Promise Instance Methods:
+Syntax: Chaining .then() and .catch() for handling asynchronous operations.
+fetch('https://api.example.com/data')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+
+Can you use await outside of an async function?
+No, await can only be used inside an async function. Using it outside of an async function will result in a syntax error.
+
+What is callback hell and why is it considered a problem?
+Callback Hell refers to the situation where callbacks are nested within other callbacks several levels deep, making the code hard to read and maintain.
+Problem:
+Readability: Deeply nested callbacks make the code difficult to understand.
+Maintainability: Hard to manage and debug, especially if errors occur.
+Example:
+doSomething(function(result) {
+    doSomethingElse(result, function(newResult) {
+        doAnotherThing(newResult, function(finalResult) {
+            console.log(finalResult);
+        });
+    });
+});
+Solutions:
+Promises: Flatten the structure by chaining .then() calls.
+Async/Await: Further simplifies the code by using synchronous-like syntax.
+Modularizing Code: Breaking down large callback chains into smaller, manageable functions.
+Example with Promises:
+doSomething()
+    .then(result => doSomethingElse(result))
+    .then(newResult => doAnotherThing(newResult))
+    .then(finalResult => console.log(finalResult))
+    .catch(error => console.error(error));
+Example with Async/Await:
+async function doAllThings() {
+    try {
+        const result = await doSomething();
+        const newResult = await doSomethingElse(result);
+        const finalResult = await doAnotherThing(newResult);
+        console.log(finalResult);
+    } catch (error) {
+        console.error(error);
+    }
+}
+doAllThings();
+
