@@ -1,0 +1,29 @@
+Answer the following questions:
+What is useState?
+useState is a Hook in React that allows you to add state management to functional components. 
+Before Hooks were introduced, state could only be managed in class components. useState returns an array with two elements:
+ the current state value and a function to update that state.
+
+What is props drilling and state lifting?
+Props Drilling: This term refers to the process of passing data from one component to another through multiple levels of components. 
+If you need to pass data from a top-level component to a deeply nested child component, 
+you may need to pass it through several intermediate components, which can lead to a complex and less maintainable code structure.
+
+State Lifting: This technique involves moving state to a common ancestor component when multiple components need to share the same state. 
+The common ancestor manages the state and passes it down through props, ensuring a single source of truth for that state.
+
+What is the ‘key’ attribute?
+The key attribute in React is used to uniquely identify elements in a list. When rendering a list of items, 
+React uses key to understand which items have changed, been added, or been removed.
+This helps React to optimize the rendering process by only updating the necessary elements.
+
+What is synthetic event?
+Synthetic Events are React's cross-browser wrapper around the native browser events. 
+They provide a consistent interface across different browsers and work in the same way as native events. 
+Synthetic Events are used in React's event system to improve performance and provide consistent behavior.
+
+What is virtual dom?
+The Virtual DOM (VDOM) is a concept used by React to optimize the process of updating the browser's DOM. 
+The VDOM is a lightweight in-memory representation of the real DOM. When a component's state changes, 
+React creates a new VDOM representation, compares it with the previous VDOM, and calculates the minimal set of changes needed to 
+update the real DOM. This process, known as reconciliation, makes updating the UI more efficient because only the necessary changes are made.
