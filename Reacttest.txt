@@ -1,0 +1,43 @@
+Answer these questions:
+What are middleware functions in Express.js, and how do they work?
+Middleware functions in Express.js are functions that have access to the request object (req), 
+the response object (res), and the next middleware function in the application’s request-response cycle. 
+These functions can perform tasks such as executing code, modifying the request and response objects, 
+ending the request-response cycle, or calling the next middleware function in the stack.
+
+
+What is JWT, and how does it work?
+JWT (JSON Web Token) is a compact, 
+URL-safe token format used for securely transmitting information between parties as a JSON object. 
+It’s commonly used for authentication and authorization.
+
+Client authentication: When a user logs in, the server verifies the credentials. 
+If valid, the server generates a JWT and sends it back to the client.
+Client stores JWT: The client stores the JWT (usually in local storage, session storage, or cookies).
+Subsequent requests: For future requests, the client includes the JWT in the Authorization header 
+(using the Bearer schema) to access protected resources.
+Server verification: The server verifies the JWT by checking its signature. 
+If the token is valid and not expired, the server processes the request. Otherwise, 
+it returns an error (e.g., 401 Unauthorized).
+
+
+How do you securely store JWT on the client-side?
+HTTP-only Cookies: This is a more secure approach. 
+The token is stored in a cookie that is flagged as HttpOnly and Secure. 
+HttpOnly prevents client-side JavaScript from accessing the cookie, 
+and Secure ensures it’s only sent over HTTPS.
+
+
+How does token expiration work in JWT?
+Token expiration in JWT is managed using the exp claim within the payload, 
+which specifies the expiration time of the token as a Unix timestamp (in seconds).
+
+How it works:
+Setting expiration: When creating a JWT, you specify an expiration time,
+ such as exp: Math.floor(Date.now() / 1000) + (60 * 60) for a token that expires in 1 hour.
+Client usage: The client must use the token before it expires. 
+After expiration, the server will reject the token as invalid, usually returning a 401 Unauthorized error.
+Refreshing tokens: To maintain user sessions, 
+short-lived access tokens are often used alongside refresh tokens. 
+The refresh token is used to obtain a new access token when the current one expires, 
+without requiring the user to log in again.
